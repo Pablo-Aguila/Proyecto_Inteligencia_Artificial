@@ -143,5 +143,5 @@ print("Kneed:", kneed.__version__)
 
 4. Ejecutar todas las celdas en orden. El dataset se carga automáticamente desde data/ingestion/data_clientes.csv.
 
-*Plazo de entrega: Jueves 2 de julio hasta las 23:00 PM — Universidad del Bío-Bío*
+*Fecha de creación: Julio 2026 — Versión 1.1*
 
