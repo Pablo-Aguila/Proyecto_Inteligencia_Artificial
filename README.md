@@ -100,4 +100,24 @@ El conjunto de datos disponible (`data_clientes.csv`) recopila información sobr
 
 ## Requisitos de software
 
-El proyecto utiliza **Python 3.12** y requiere la instalación de la biblioteca `kneed` además de los paquetes de analítica tradicionales[cite: 4]:
+El proyecto utiliza **Python 3.12** y requiere la instalación de la biblioteca `kneed` además de los paquetes de analítica tradicionales:
+
+```
+kneed >= 0.8.6
+pandas >= 1.5.0
+numpy >= 1.23.0
+matplotlib >= 3.6.0
+seaborn >= 0.12.0
+scikit-learn >= 1.2.0
+plotly >= 5.0.0
+```
+
+Para verificar la versión de tu entorno:
+
+```python
+import pandas as pd
+import kneed
+print("Pandas:", pd.__version__)
+print("Kneed:", kneed.__version__)
+```
+
