@@ -138,7 +138,7 @@ print("Kneed:", kneed.__version__)
 3. Abrir el notebook principal:
    
  ```
- jupyter notebook notebooks/E4-Regresion.ipynb
+ jupyter notebook notebooks/E4-Clustering.ipynb
  ```
 
 4. Ejecutar todas las celdas en orden. El dataset se carga automáticamente desde data/ingestion/data_clientes.csv.
