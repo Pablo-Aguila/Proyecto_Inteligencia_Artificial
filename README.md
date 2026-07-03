@@ -121,3 +121,5 @@ print("Pandas:", pd.__version__)
 print("Kneed:", kneed.__version__)
 ```
 
+# Cómo ejecutar el notebook
+Clonar el repositorio:
