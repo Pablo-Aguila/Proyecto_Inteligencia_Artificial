@@ -142,6 +142,6 @@ print("Kneed:", kneed.__version__)
  ```
 
 4. Ejecutar todas las celdas en orden. El dataset se carga automáticamente desde data/ingestion/data_clientes.csv.
-
+---
 *Fecha de creación: Julio 2026 — Versión 1.1*
 
