@@ -37,7 +37,7 @@ El propósito del proyecto es diseñar, construir y evaluar **dos modelos de seg
 └── Proyecto_Inteligencia_Artificial,_leandro_F,Pablo_S,Pablo_Á.ipynb   # Notebook principal de la evaluación 4
 ```
 
-> El notebook solicita o carga el dataset directamente bajo el nombre de `data_clientes.csv`.
+> El notebook o carga el dataset directamente bajo el nombre de `data_clientes.csv`.
 
 ---
 
