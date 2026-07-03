@@ -15,7 +15,7 @@
 
 Este repositorio contiene el desarrollo de la **Evaluación 4** de la asignatura de Inteligencia Artificial, perteneciente a la carrera de Ingeniería Civil en Informática de la Universidad del Bío-Bío, sede Concepción.
 
-El propósito del proyecto es diseñar, construir y evaluar **dos modelos de segmentación de clientes independientes** basados en algoritmos de clustering (K-Means) desde perspectivas de comportamiento y analítica de negocio diferentes para una empresa de comercio electrónico[cite: 1]. En lugar de generar un único modelo generalizado que oculte patrones relevantes, la solución aborda el comportamiento de los clientes desde múltiples dimensiones independientes[cite: 1]:
+El propósito del proyecto es diseñar, construir y evaluar **dos modelos de segmentación de clientes independientes** basados en algoritmos de clustering (K-Means) desde perspectivas de comportamiento y analítica de negocio diferentes para una empresa de comercio electrónico[cite: 1]. En lugar de generar un único modelo generalizado que oculte patrones relevantes, la solución aborda el comportamiento de los clientes desde múltiples dimensiones independientes:
 1. **Dimensión de Valor Económico y Lealtad (Perspectiva Financiera)**
 2. **Dimensión de Comportamiento y Adopción Digital (Perspectiva de Engagement)**
 
@@ -37,64 +37,64 @@ El propósito del proyecto es diseñar, construir y evaluar **dos modelos de seg
 └── Proyecto_Inteligencia_Artificial,_leandro_F,Pablo_S,Pablo_Á.ipynb   # Notebook principal de la evaluación 4
 ```
 
-> El notebook solicita o carga el dataset directamente bajo el nombre de `data_clientes.csv`[cite: 1, 4].
+> El notebook solicita o carga el dataset directamente bajo el nombre de `data_clientes.csv`.
 
 ---
 
 ## Dataset
 
-El conjunto de datos disponible (`data_clientes.csv`) recopila información sobre hábitos de compra, características generales y comportamiento digital de los usuarios mediante las siguientes variables[cite: 1]:
+El conjunto de datos disponible (`data_clientes.csv`) recopila información sobre hábitos de compra, características generales y comportamiento digital de los usuarios mediante las siguientes variables:
 
 **Identificador**
-- `cliente_id` — Identificador único del cliente[cite: 1].
+- `cliente_id` — Identificador único del cliente.
 
 **Variables numéricas de comportamiento transaccional y financiero**
-- `ingreso_mensual` — Ingreso mensual estimado del cliente[cite: 1].
-- `gasto_promedio_mensual` — Gasto promedio mensual en la plataforma[cite: 1].
-- `frecuencia_compra` — Número de compras realizadas en un período determinado[cite: 1].
-- `valor_promedio_compra` — Monto promedio de cada compra[cite: 1].
-- `porcentaje_descuentos` — Porcentaje promedio de descuento utilizado[cite: 1].
-- `antiguedad_cliente` — Tiempo que lleva siendo cliente[cite: 1].
-- `productos_categoria` — Número de categorías de productos compradas[cite: 1].
-- `tasa_recompra` — Proporción de compras repetidas[cite: 1].
+- `ingreso_mensual` — Ingreso mensual estimado del cliente].
+- `gasto_promedio_mensual` — Gasto promedio mensual en la plataforma.
+- `frecuencia_compra` — Número de compras realizadas en un período determinado.
+- `valor_promedio_compra` — Monto promedio de cada compra.
+- `porcentaje_descuentos` — Porcentaje promedio de descuento utilizado.
+- `antiguedad_cliente` — Tiempo que lleva siendo cliente.
+- `productos_categoria` — Número de categorías de productos compradas.
+- `tasa_recompra` — Proporción de compras repetidas.
 
 **Variables numéricas de comportamiento digital**
-- `visitas_web_mensuales` — Cantidad de visitas al sitio web[cite: 1].
-- `tiempo_promedio_sesion` — Tiempo promedio de permanencia en el sitio[cite: 1].
-- `dispositivos_registrados` — Cantidad de dispositivos asociados a la cuenta[cite: 1].
-- `compras_movil_pct` — Porcentaje de compras realizadas desde dispositivos móviles[cite: 1].
-- `interacciones_app` — Número de interacciones realizadas en la aplicación móvil[cite: 1].
+- `visitas_web_mensuales` — Cantidad de visitas al sitio web.
+- `tiempo_promedio_sesion` — Tiempo promedio de permanencia en el sitio.
+- `dispositivos_registrados` — Cantidad de dispositivos asociados a la cuenta.
+- `compras_movil_pct` — Porcentaje de compras realizadas desde dispositivos móviles.
+- `interacciones_app` — Número de interacciones realizadas en la aplicación móvil.
 
 **Variables numéricas de logística y demografía**
-- `edad` — Edad del cliente[cite: 1].
-- `distancia_envio_km` — Distancia promedio de envío[cite: 1].
-- `gasto_envio_promedio` — Costo promedio de envío[cite: 1].
+- `edad` — Edad del cliente.
+- `distancia_envio_km` — Distancia promedio de envío.
+- `gasto_envio_promedio` — Costo promedio de envío.
 
 ---
 
 ## Metodología
 
 ### Parte 1 — Diseño de las segmentaciones
-- **Enfoque Financiero (Modelo 1):** Selección de variables orientadas al músculo económico y lealtad (`gasto_promedio_mensual`, `antiguedad_cliente`, `tasa_recompra`), justificando analíticamente su inclusión y la exclusión de métricas no relacionadas[cite: 1].
-- **Enfoque de Engagement Digital (Modelo 2):** Selección de variables enfocadas puramente en el canal y uso tecnológico (`interacciones_app`, `tiempo_promedio_sesion`, `compras_movil_pct`), abstrayendo el valor monetario para perfilar la experiencia de usuario[cite: 1].
+- **Enfoque Financiero (Modelo 1):** Selección de variables orientadas al músculo económico y lealtad (`gasto_promedio_mensual`, `antiguedad_cliente`, `tasa_recompra`), justificando analíticamente su inclusión y la exclusión de métricas no relacionadas.
+- **Enfoque de Engagement Digital (Modelo 2):** Selección de variables enfocadas puramente en el canal y uso tecnológico (`interacciones_app`, `tiempo_promedio_sesion`, `compras_movil_pct`), abstrayendo el valor monetario para perfilar la experiencia de usuario.
 
 ### Parte 2 — Preparación de datos
 - Estandarización de nombres de columnas y eliminación de espacios en blanco.
 - Detección y corrección de valores inconsistentes/negativos transformándolos mediante valores absolutos (`.abs()`).
-- Imputación de nulos y verificación de registros duplicados[cite: 4].
-- Tratamiento de valores atípicos mediante el método de **Winsorización** (transformador personalizado `Winsorizer` a percentiles extremos)[cite: 4].
-- Análisis de escala y aplicación de `StandardScaler` de manera secuencial a cada conjunto seleccionado[cite: 1, 4].
+- Imputación de nulos y verificación de registros duplicados.
+- Tratamiento de valores atípicos mediante el método de **Winsorización** (transformador personalizado `Winsorizer` a percentiles extremos).
+- Análisis de escala y aplicación de `StandardScaler` de manera secuencial a cada conjunto seleccionado.
 
 ### Parte 3 — Construcción de modelos
-- Implementación de algoritmos de clustering utilizando `KMeans`[cite: 1, 4].
-- Determinación del número óptimo de clusters ($K$) de forma matemática mediante el método del codo (`KneeLocator` de la librería `kneed`)[cite: 4].
-- Validación y contraste del número de agrupaciones mediante la métrica de **Silhouette score**[cite: 1, 4].
+- Implementación de algoritmos de clustering utilizando `KMeans`.
+- Determinación del número óptimo de clusters ($K$) de forma matemática mediante el método del codo (`KneeLocator` de la librería `kneed`).
+- Validación y contraste del número de agrupaciones mediante la métrica de **Silhouette score**.
 
 ### Parte 4 — Interpretación y Negocio
-- Reconstrucción de los centroides finales pasándolos a su escala original mediante `inverse_transform`[cite: 4].
-- Visualización interactiva y gráficos analíticos tridimensionales (3D) de las agrupaciones resultantes[cite: 4].
-- Asignación de nombres descriptivos a cada clúster y comparación cruzada de clientes entre ambos enfoques[cite: 1].
-- Discusión de decisiones estratégicas de negocio asociadas a cada segmentación obtenida[cite: 1].
+- Reconstrucción de los centroides finales pasándolos a su escala original mediante `inverse_transform`.
+- Visualización interactiva y gráficos analíticos tridimensionales (3D) de las agrupaciones resultantes.
+- Asignación de nombres descriptivos a cada clúster y comparación cruzada de clientes entre ambos enfoques.
+- Discusión de decisiones estratégicas de negocio asociadas a cada segmentación obtenida.
 
 ---
 
