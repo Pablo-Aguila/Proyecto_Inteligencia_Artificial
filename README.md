@@ -23,6 +23,7 @@ El propósito del proyecto es diseñar, construir y evaluar **dos modelos de seg
 
 ## Estructura del repositorio
 
+```
  620454/
 │
 ├── README.md                        # Identificación del equipo y descripción del repositorio
@@ -34,6 +35,7 @@ El propósito del proyecto es diseñar, construir y evaluar **dos modelos de seg
 │       └── data_clientes_clean.csv  # Dataset preprocesado
 └── notebooks/
 └── Proyecto_Inteligencia_Artificial,_leandro_F,Pablo_S,Pablo_Á.ipynb   # Notebook principal de la evaluación 4
+```
 
 > El notebook solicita o carga el dataset directamente bajo el nombre de `data_clientes.csv`[cite: 1, 4].
 
