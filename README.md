@@ -124,7 +124,24 @@ print("Kneed:", kneed.__version__)
 ## Cómo ejecutar el notebook
 1. Clonar el repositorio:
 
-```bash
-git clone <url-del-repositorio>
-cd 620454
-```
+ ```bash
+ git clone <url-del-repositorio>
+ cd 620454
+ ```
+
+2. Instalar las dependencias y la biblioteca requerida para detectar el codo:
+
+ ```bash
+ Instalar las dependencias y la biblioteca requerida para detectar el codo:
+ ```
+
+3. Abrir el notebook principal:
+   
+ ```
+ jupyter notebook notebooks/E4-Regresion.ipynb
+ ```
+
+4. Ejecutar todas las celdas en orden. El dataset se carga automáticamente desde data/ingestion/data_clientes.csv.
+
+*Plazo de entrega: Jueves 2 de julio hasta las 23:00 PM — Universidad del Bío-Bío*
+
