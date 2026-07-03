@@ -121,5 +121,10 @@ print("Pandas:", pd.__version__)
 print("Kneed:", kneed.__version__)
 ```
 
-# Cómo ejecutar el notebook
-Clonar el repositorio:
+## Cómo ejecutar el notebook
+1. Clonar el repositorio:
+
+```bash
+git clone <url-del-repositorio>
+cd 620454
+```
